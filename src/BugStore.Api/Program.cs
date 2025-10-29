@@ -6,6 +6,8 @@ using BugStore.Application.Handlers.Reports;
 using BugStore.Application.Responses.Reports;
 using BugStore.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.OpenApi;
+using Scalar.AspNetCore;
 using CustomerCreateRequest = BugStore.Application.Requests.Customers.Create;
 using CustomerUpdateRequest = BugStore.Application.Requests.Customers.Update;
 using OrderCreateRequest = BugStore.Application.Requests.Orders.Create;
@@ -16,6 +18,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=app.db"));
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddOpenApi();
 builder.Services.AddScoped<CustomerHandler>();
 builder.Services.AddScoped<ProductHandler>();
 builder.Services.AddScoped<OrderHandler>();
@@ -30,6 +34,8 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.MapGet("/", () => "Hello World!");
+app.MapOpenApi();
+app.MapScalarApiReference();
 
 app.MapGet("/v1/customers", async ([AsParameters] ListQuery query, CustomerHandler handler, CancellationToken cancellationToken) =>
 {
