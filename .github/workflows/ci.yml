@@ -32,13 +32,13 @@ jobs:
         run: dotnet test src/BugStore.sln --configuration Release --no-build
 
       - name: Publish artifacts
-        run: dotnet publish src/BugStore.sln --configuration Release --output publish
+        run: dotnet publish src/BugStore.sln --configuration Release --output publish && cd publish && zip -r ../published-app.zip .
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: published-app
-          path: publish
+          path: published-app.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -67,4 +67,4 @@ jobs:
         with:
           app-name: bug-store
           slot-name: Production
-          package: published-app
+          package: published-app.zip
