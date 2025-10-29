@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-BASE_URL="${1:-http://localhost:5169}"
+BASE_URL="${1:-https://bug-store-h2f9degcamh8ggcd.brazilsouth-01.azurewebsites.net}"
 
 if ! command -v jq >/dev/null 2>&1; then
   echo "Este script depende de 'jq'. Instale-o e execute novamente." >&2
