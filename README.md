@@ -4,7 +4,7 @@
 
 Oi, eu sou o Edilson Ribeiro e este é o espaço onde compartilho minha jornada de aprendizado durante o desafio **Caça aos Bugs 2025**, realizado pelo [balta.io](https://balta.io). 👻
 
-Segue o link da aplicação publicada: [Link](https://bug-store-h2f9degcamh8ggcd.brazilsouth-01.azurewebsites.net/)
+Segue o link da aplicação publicada: [Link](https://bug-store-h2f9degcamh8ggcd.brazilsouth-01.azurewebsites.net/scalar)
 
 Aqui você vai encontrar projetos, exercícios e códigos que estou desenvolvendo durante o desafio. O objetivo é colocar a mão na massa, testar ideias e registrar minha evolução no mundo da tecnologia.
 
